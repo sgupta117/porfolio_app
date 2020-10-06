@@ -1,0 +1,215 @@
+{% load static %}
+{% static "img/projects" as projectURL %}
+{% static "img/blogs" as blogURL %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shubham Gupta</title>
+	<link rel="icon" href="{% static 'img/my-logo.png' %}" type="image/png">
+
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-shape">
+
+  <!--================ Header Menu Area start =================-->
+  <header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container box_1620">
+          <a class="navbar-brand logo_h" href="index"><img src="{% static 'img/my-logo.png' %}" alt=""><span class="logo-text" style="font-weight: bold;color: #2a2a2a">SHUBHAM GUPTA</span></a>
+          
+
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav justify-content-end">
+              <li class="nav-item active"><a class="nav-link text-uppercase" href="#">Home</a></li> 
+              <li class="nav-item"><a class="nav-link text-uppercase" href="#about-me">About</a></li> 
+              <li class="nav-item"><a class="nav-link text-uppercase" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link text-uppercase" href="#blog">Blog</a></li>
+              <li class="nav-item"><a class="nav-link text-uppercase" href="#resume">Resume</a></li>
+              <li class="nav-item"><a class="nav-link text-uppercase" href="#contact">Contact</a></li>
+                                             
+          </div> 
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!--================Header Menu Area =================-->
+
+
+  <!--================About Start =================-->
+  <section class="hero-banner" id="about-me">
+    <div class="container">
+
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
+          <h1>About Myself</h1>
+          <p>{{myself}}</p>
+          <a href="{% static 'my_resume.pdf' %}" target="_blank" class="smoothscroll">
+            <button type="button" class="btn button primary-button mr-4 text-uppercase">DOWNLOAD CV</button>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
+          <img class="img-fluid" src="{% static 'img/banner/banner-images.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================About End =================-->
+
+
+  <!--================Project Start =================-->
+  <section class="section-margin generic-margin" id="projects">
+    <div class="container">
+      <div class="section-intro text-center pb-90px">
+        <img class="section-intro-img" src="{% static 'img/my-logo.png' %}" alt="">
+        <h2>PROJECTS</h2>
+      </div>
+
+      <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="service-card text-center">
+            <div class="service-card-img">
+              <img class="img-fluid" src="{{projectURL}}/{{project.img}}" alt="">
+            </div>
+            <div class="service-card-body">
+              <h3>{{project.name}}</h3>
+              <p>{{project.desc}}
+                {% if project.liveDemo %}
+                <p>
+                  <a href="{{project.liveDemo}}"" target="_blank" class="site-link" style="color: #7d51ba">Live Demo<i class="icon-chevron-right"></i>
+                  </a>
+                </p>
+                {% endif %}
+                <p>
+                  <center>
+                    <a href="{{project.codeLink}}" class="btn button primary-button" target="_blank">View Source Code</a>
+                  </center>
+                </p>
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div><br><br><br>
+      <center>
+        <a href="https://github.com/sgupta117" class="smoothscroll"><button type="button" class="btn button primary-button mr-4 text-uppercase">More Projects</button></a>
+      </center>
+    </div>
+  </section>
+  <!--================Project End =================-->
+
+  <!--================Blog Start =================-->
+  <section class="bg-gray section-padding" id="blog">
+    <div class="container">
+      <div class="section-intro text-center pb-90px">
+        <img class="section-intro-img" src="{% static 'img/my-logo.png' %}" alt="">
+        <h2>BLOG POSTS</h2>
+      </div>
+
+
+      <div class="owl-carousel owl-theme testimonial pb-xl-5">
+        {% for blog in blogs %}
+        <div class="testimonial__item">
+          <div class="row">
+            <div class="col-md-3 col-lg-2 align-self-center">
+              <div class="testimonial__img">
+                <a href="{{blog.link}}" target="_blank">
+                  <img class="card-img rounded-0" src="{{blogURL}}/{{blog.img}}" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="col-md-9 col-lg-10">
+              <div class="testimonial__content mt-3 mt-sm-0">
+                <h3>
+                  <a href="{{blog.link}}" target="_blank">{{blog.name}}</a>
+                </h3>
+                <p class="testimonial__i">{{blog.desc}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      <center>
+        <a href="https://medium.com/@gupta020295" class="smoothscroll"><button type="button" class="btn button primary-button mr-4 text-uppercase">More Blog Posts</button></a>
+      </center>
+    </div>
+  </section>
+  <!--================Blog End =================-->
+
+
+  <!--================Resume Start =================-->
+  <section class="site-section bg-light " id="resume">
+    <div class="container">
+      <div class="row">
+        <div class="section-intro text-center pb-90px">
+          <img class="section-intro-img" src="{% static 'img/my-logo.png' %}" alt="">
+          <h2>RESUME</h2>
+        </div>
+          <center>
+            <a href="{% static 'my_resume.pdf' %}" target="_blank">
+              <img class="image img-fluid" src="{% static 'img/resume/my_resume.jpg' %}" alt="resume">
+            </a>
+        </center>
+      </div>
+    </div>
+  </section>
+  <!--================Resume End =================-->
+
+
+  
+
+
+  <!-- ================ start footer Area ================= -->
+  <footer class="footer-area" id="contact">
+    <div class="container">
+
+      <div class="">
+              
+              <div class="social text-center">
+                <br><br>
+
+              <h1 class="text-uppercase title-h1 pb-30px" style="color:#455cdd">Get In Touch</h1>
+              <br><br>
+              <a href="https://www.linkedin.com/in/shubham-gupta-941457a4/" target="_blank"><i style="font-size:30px" class="fab fa-linkedin"></i></a> &nbsp;
+              <a href="https://github.com/sgupta117" target="_blank"><i style="font-size:30px" class="fab fa-github"></i></a> &nbsp
+              &nbsp;&nbsp;
+          </div><br>  
+          <div class="row" style="text-align: center;font-family: 'Open Sans', sans-serif;font-weight: bold;">
+              <div class="col-lg-6">Phone : <span style="color:#455cdd">+91-8890061175</span></div>
+              <div class="col-lg-6">Email : <a style= "color: #455cdd" onMouseOver="this.style.color='#f13b3b'"
+  onMouseOut="this.style.color='#455cdd'" href = "mailto:gupta020295@gmail.com" target = "_blank">gupta020295@gmail.com</a></div>
+      </div>
+  </div>
+  <br>  
+  </footer>
+  <!-- ================ End footer Area ================= -->
+
+
+
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'js/mail-script.js' %}"></script>
+  <script src="{% static 'js/skrollr.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
