@@ -1,5 +1,5 @@
 """
-WSGI config for kishan project.
+WSGI config for shubham project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
