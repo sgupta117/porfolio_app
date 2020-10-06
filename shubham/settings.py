@@ -25,7 +25,7 @@ SECRET_KEY = '2%x97lqakz=(2w)ats@_kl%@ow_@ls$m=h(ac$!qtkqly4$a6='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ALLOWED_HOSTS = ["portfoliosgupta.herokuapp.com", '127.0.0.1']
 
 
@@ -123,8 +123,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-django_heroku.settings(locals())
