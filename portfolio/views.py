@@ -28,7 +28,7 @@ def index(request):
     sf.codeLink = 'https://github.com/sgupta117/Tweet-Analyzer'
 
     hms = Projects()
-    hms.img = 'RPS.png'
+    hms.img = 'RPS.jpg'
     hms.name = 'ROCK PAPER SCISSOR GAME'
     hms.desc = "Building a Rock Paper Scissors AI using Tensorflow and OpenCV with Python"
     hms.liveDemo = ''
