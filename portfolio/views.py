@@ -37,7 +37,7 @@ def index(request):
     dl = Projects()
     dl.img = 'Stock.png'
     dl.name = 'STOCK PRICE PREDICTION'
-    dl.desc = "Bilding a system to predict future stock prices for APPLE company using LSTM Recurrent Neural Network."
+    dl.desc = "Building a system to predict future stock prices for APPLE company using LSTM Recurrent Neural Network."
     dl.liveDemo = ''
     dl.codeLink = 'https://github.com/sgupta117/Deep-Learning-Projects/tree/master/LSTM/Stock-MArket-Forecasting-master_lstm'
 
