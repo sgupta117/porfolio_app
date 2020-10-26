@@ -1,6 +1,6 @@
-# Kishan-Portfolio
+# Shubaham-Portfolio
 
   A portfolio of mine developed using Django
   
-  Link to the site : https://kishan0725.pythonanywhere.com/
+  Link to the site : https://portfoliosgupta.herokuapp.com/
 
